@@ -87,7 +87,10 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="{{ url('/campaign') }}" class="hidden md:block text-sm font-medium text-gray-600 hover:text-[#083763] transition-colors">Campaign brief →</a>
+                    <a href="{{ url('/campaign') }}" class="hidden md:inline-flex items-center gap-1.5 bg-[#E1FFEC] hover:bg-[#B3FEF7] text-[#083763] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#67EADD] transition-colors">
+                        <span class="w-1.5 h-1.5 bg-[#21DBC8] rounded-full"></span>
+                        Campaign brief
+                    </a>
                     <button @click="openModal('Get a trial', 'This would open the Workato Developer Sandbox signup — a free, permanent self-serve environment with 1,000+ connectors, 50K free credits, and AI automations. No credit card required.')"
                             class="bg-[#1D60CA] hover:bg-[#1A58C0] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer">
                         Get a trial
