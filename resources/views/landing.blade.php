@@ -118,72 +118,30 @@
 
         @php
         $factors = [
-            [
-                'number' => '01',
-                'name' => 'Governed Operations',
-                'principle' => 'No enterprise concern delegates to an agentic protocol.',
-                'description' => 'Protocols like MCP are thin by design — purpose-built for specific things in the reasoning layer. They don\'t take care of enterprise concerns. You have to. Don\'t wait for the standard to adopt what your business needs right now.',
-                'example' => 'If you\'re in a regulated industry, the dial goes up further. Authentication, audit trails, compliance controls — none of that belongs inside the protocol layer.',
-            ],
-            [
-                'number' => '02',
-                'name' => 'Deterministic Mutations',
-                'principle' => 'All state mutations belong to the control plane.',
-                'description' => 'The control plane should own all creates, writes, and deletes. Never allow the probabilistic reasoning layer to have direct write access to state it could destroy. The deterministic layer controls mutations to data your business cares about.',
-                'example' => 'A clinician needs the right prescription. A customer needs exactly one charge. These guarantees belong in the control plane — not in the LLM.',
-            ],
-            [
-                'number' => '03',
-                'name' => 'Intent-Based Communication',
-                'principle' => 'Tool boundaries follow intent, not implementation.',
-                'description' => 'How probabilistic callers communicate with the control plane should be about the tool\'s intent — not leaking details about the underlying implementation. Don\'t flood the LLM context with a sequence of raw API calls. Start with the intent, work backwards.',
-                'example' => 'Abstracting away the implementation layer frees up context for richer reasoning — and minimizes exfiltration surface area by hiding what system is being called and how.',
-            ],
-            [
-                'number' => '04',
-                'name' => 'Bounded Access',
-                'principle' => 'Each caller sees only the capabilities its role requires.',
-                'description' => 'Least privilege isn\'t new — but the patterns look different in the agentic era. When callers are probabilistic and behaviors are non-deterministic, gateway-level filtering and per-role tool restrictions become critical for minimizing blast radius.',
-                'example' => 'If a prompt-injected agent encounters the lethal trifecta, bounded access is what limits the damage. The blast radius should be minimized by design, not by hope.',
-            ],
-            [
-                'number' => '05',
-                'name' => 'Safe Retries',
-                'principle' => 'Every mutation is safely retried by a probabilistic caller.',
-                'description' => 'When your caller is probabilistic, it doesn\'t know whether it\'s calling for the first time or the second. Your idempotency keys break. Your deduplication layers stop working correctly. You have to build for different retry patterns than you\'re used to.',
-                'example' => 'Backend systems that assume external callers send genuinely identical keys are wrong now. The same request from a probabilistic caller may arrive in subtly different forms each time.',
-            ],
-            [
-                'number' => '06',
-                'name' => 'Recovery Contracts',
-                'principle' => 'The reasoning layer never guesses at state.',
-                'description' => 'If retries are different, errors are different too. Logic can\'t always branch deterministically on a 400 vs. a 500. The control plane needs to give the reasoning layer a message about whether it\'s safe to retry — not just a static error code to be interpreted.',
-                'example' => 'A reasoning caller receiving a raw 500 doesn\'t know what happened or what to do next. A recovery contract tells it: here\'s what occurred, here\'s whether it\'s safe to try again.',
-            ],
-            [
-                'number' => '07',
-                'name' => 'Structural Observability',
-                'principle' => 'Every agent action is reconstructable by architecture.',
-                'description' => 'LLMs are black boxes. Even if you ask one what it did, you\'re not guaranteed to get a truthful answer. Observability has to be enforced outside the LLM — in the deterministic control layer, by design, not because a developer decided to capture a log.',
-                'example' => 'What happened? What was the intent? What system called and why? These questions need answers the architecture guarantees — not answers the LLM volunteers.',
-            ],
+            [1, '01', 'Governed Operations', 'No enterprise concern delegates to an agentic protocol.'],
+            [2, '02', 'Deterministic Mutations', 'All state mutations belong to the control plane.'],
+            [3, '03', 'Intent-Based Communication', 'Tool boundaries follow intent, not implementation.'],
+            [4, '04', 'Bounded Access', 'Each caller sees only the capabilities its role requires.'],
+            [5, '05', 'Safe Retries', 'Every mutation is safely retried by a probabilistic caller.'],
+            [6, '06', 'Recovery Contracts', 'The reasoning layer never guesses at state.'],
+            [7, '07', 'Structural Observability', 'Every agent action is reconstructable by architecture.'],
         ];
         @endphp
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            @foreach($factors as $i => $factor)
-            <div class="bg-[#1A1D3E] rounded-2xl p-7 border border-gray-700 hover:border-[#FF5F36] transition-colors group {{ $i === 6 ? 'md:col-span-2 lg:col-span-1' : '' }}">
-                <div class="flex items-start justify-between mb-4">
-                    <span class="text-4xl font-bold text-gray-700 leading-none">{{ $factor['number'] }}</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F36] mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            @foreach($factors as [$num, $display, $name, $principle])
+            <a href="{{ url('/factor/' . $num) }}"
+               class="group bg-[#1A1D3E] hover:bg-[#1F2347] rounded-2xl p-7 border border-gray-700 hover:border-[#FF5F36] transition-all flex flex-col {{ $num === 7 ? 'md:col-span-2 lg:col-span-1' : '' }}">
+                <div class="flex items-start justify-between mb-5">
+                    <span class="text-3xl font-bold text-gray-700 leading-none">{{ $display }}</span>
+                    <svg class="w-4 h-4 text-gray-600 group-hover:text-[#FF5F36] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
                 </div>
-                <h3 class="text-white font-bold text-lg mb-2">{{ $factor['name'] }}</h3>
-                <p class="text-[#FF5F36] text-sm font-medium italic mb-3 leading-snug">{{ $factor['principle'] }}</p>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ $factor['description'] }}</p>
-                <div class="bg-[#0D0F2B] rounded-xl p-4 border border-gray-700">
-                    <p class="text-gray-500 text-xs leading-relaxed">{{ $factor['example'] }}</p>
-                </div>
-            </div>
+                <h3 class="text-white font-bold text-lg mb-3 leading-snug">{{ $name }}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed flex-1">{{ $principle }}</p>
+                <p class="text-[#FF5F36] text-xs font-semibold mt-5 group-hover:underline">Read more →</p>
+            </a>
             @endforeach
         </div>
     </div>
