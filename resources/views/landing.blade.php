@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Hero --}}
-<section class="bg-[#083763] text-white py-24 px-6 lg:px-8">
+<section class="bg-[#083763] bg-dot-pattern text-white py-24 px-6 lg:px-8">
     <div class="max-w-5xl mx-auto text-center">
         <div class="inline-flex items-center gap-2 bg-[#0C3A70] border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 mb-8">
             <span class="w-2 h-2 bg-[#67EADD] rounded-full"></span>
@@ -49,7 +49,7 @@
 </section>
 
 {{-- Two-layer architecture --}}
-<section class="bg-white py-24 px-6 lg:px-8">
+<section class="bg-[#F4F2E3] py-24 px-6 lg:px-8">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-4">Every agentic system has two layers.</h2>
@@ -110,7 +110,7 @@
 </section>
 
 {{-- Seven Factors --}}
-<section id="factors" class="bg-[#083763] py-24 px-6 lg:px-8">
+<section id="factors" class="bg-[#083763] bg-dot-pattern py-24 px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold font-display text-white mb-4">The Seven Factors</h2>
@@ -148,7 +148,7 @@
 </section>
 
 {{-- Self-assessment checklist --}}
-<section class="bg-white py-20 px-6 lg:px-8">
+<section class="bg-[#F4F2E3] py-20 px-6 lg:px-8">
     <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Does your agent have a control plane?</h2>

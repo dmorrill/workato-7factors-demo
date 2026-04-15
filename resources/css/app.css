@@ -28,3 +28,14 @@
 @utility font-display {
     font-family: var(--font-display);
 }
+
+@utility font-mono-code {
+    font-family: 'JetBrains Mono', 'Inconsolata', ui-monospace, monospace;
+}
+
+@utility bg-dot-pattern {
+    background-image: url('/dots-pattern-lite.png');
+    background-size: 280px 280px;
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+}

@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Header --}}
-<section class="bg-[#083763] text-white py-20 px-6 lg:px-8">
+<section class="bg-[#083763] bg-dot-pattern text-white py-20 px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-[#0C3A70] border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 mb-8">
             <span class="w-2 h-2 bg-[#67EADD] rounded-full"></span>
@@ -284,7 +284,7 @@
             Five pieces, one anchor, 15-minute review. The Seven Factors keynote is ready to go. This brief is the Natala review package for the first run.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="{{ url('/') }}" class="bg-white text-[#67EADD] font-semibold px-7 py-3 rounded-lg hover:bg-orange-50 transition-colors">
+            <a href="{{ url('/') }}" class="bg-white text-[#083763] font-semibold px-7 py-3 rounded-lg hover:bg-[#E1FFEC] transition-colors">
                 View the landing page →
             </a>
             <a href="https://www.youtube.com/watch?v=zsQjoUECVRc" target="_blank" class="border border-white/50 text-white font-semibold px-7 py-3 rounded-lg hover:bg-white/10 transition-colors">

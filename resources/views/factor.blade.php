@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Header --}}
-<section class="bg-[#083763] text-white py-20 px-6 lg:px-8">
+<section class="bg-[#083763] bg-dot-pattern text-white py-20 px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <a href="{{ url('/') }}#factors" class="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm mb-10 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@
 </section>
 
 {{-- Main content --}}
-<section class="bg-white py-20 px-6 lg:px-8">
+<section class="bg-[#F4F2E3] py-20 px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-3 gap-12">
             {{-- Main text --}}
