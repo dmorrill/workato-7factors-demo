@@ -129,16 +129,16 @@
         ];
         @endphp
 
-        <div class="divide-y divide-gray-700/60 border border-gray-700/60 rounded-2xl overflow-hidden">
+        <div class="divide-y divide-[#1A4A8A] border border-[#1A4A8A] rounded-2xl overflow-hidden">
             @foreach($factors as [$num, $display, $name, $principle])
             <a href="{{ url('/factor/' . $num) }}"
                class="group flex items-center gap-6 px-7 py-5 bg-[#0C3A70] hover:bg-[#0D4080] transition-colors">
-                <span class="text-2xl font-bold text-gray-700 w-8 shrink-0 group-hover:text-gray-500 transition-colors">{{ $display }}</span>
+                <span class="text-2xl font-bold text-[#67EADD]/50 w-8 shrink-0 group-hover:text-[#67EADD] transition-colors font-display">{{ $display }}</span>
                 <div class="flex-1 min-w-0">
                     <p class="text-white font-semibold text-sm">{{ $name }}</p>
-                    <p class="text-gray-400 text-sm mt-0.5 truncate">{{ $principle }}</p>
+                    <p class="text-gray-300 text-sm mt-0.5 truncate">{{ $principle }}</p>
                 </div>
-                <svg class="w-4 h-4 text-gray-600 group-hover:text-[#67EADD] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 text-gray-400 group-hover:text-[#67EADD] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
                 </svg>
             </a>
