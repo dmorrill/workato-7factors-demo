@@ -128,19 +128,18 @@
         ];
         @endphp
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="divide-y divide-gray-700/60 border border-gray-700/60 rounded-2xl overflow-hidden">
             @foreach($factors as [$num, $display, $name, $principle])
             <a href="{{ url('/factor/' . $num) }}"
-               class="group bg-[#1A1D3E] hover:bg-[#1F2347] rounded-2xl p-7 border border-gray-700 hover:border-[#FF5F36] transition-all flex flex-col {{ $num === 7 ? 'md:col-span-2 lg:col-span-1' : '' }}">
-                <div class="flex items-start justify-between mb-5">
-                    <span class="text-3xl font-bold text-gray-700 leading-none">{{ $display }}</span>
-                    <svg class="w-4 h-4 text-gray-600 group-hover:text-[#FF5F36] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
-                    </svg>
+               class="group flex items-center gap-6 px-7 py-5 bg-[#1A1D3E] hover:bg-[#1F2347] transition-colors">
+                <span class="text-2xl font-bold text-gray-700 w-8 shrink-0 group-hover:text-gray-500 transition-colors">{{ $display }}</span>
+                <div class="flex-1 min-w-0">
+                    <p class="text-white font-semibold text-sm">{{ $name }}</p>
+                    <p class="text-gray-400 text-sm mt-0.5 truncate">{{ $principle }}</p>
                 </div>
-                <h3 class="text-white font-bold text-lg mb-3 leading-snug">{{ $name }}</h3>
-                <p class="text-gray-400 text-sm leading-relaxed flex-1">{{ $principle }}</p>
-                <p class="text-[#FF5F36] text-xs font-semibold mt-5 group-hover:underline">Read more →</p>
+                <svg class="w-4 h-4 text-gray-600 group-hover:text-[#FF5F36] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
             </a>
             @endforeach
         </div>
