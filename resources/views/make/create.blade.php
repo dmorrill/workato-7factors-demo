@@ -39,6 +39,46 @@
                         <p class="text-gray-400 text-xs mt-2">YouTube videos: transcript is automatically extracted if captions are available. Web pages: main content is scraped.</p>
                     </div>
 
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Target developer personas</label>
+                        <p class="text-gray-400 text-xs mb-4">Select one or more personas. The campaign brief will generate separate copy for each one so the marketer can toggle between views.</p>
+
+                        @php
+                            $personaDefs = \App\Services\CampaignGeneratorService::personaDefinitions();
+                            $groups = [];
+                            foreach ($personaDefs as $key => $def) {
+                                $groups[$def['group']][] = ['key' => $key, 'label' => $def['label'], 'audience' => $def['audience']];
+                            }
+                        @endphp
+
+                        <div class="space-y-4">
+                            @foreach ($groups as $groupName => $groupPersonas)
+                            <div class="rounded-xl border border-gray-200 overflow-hidden">
+                                <div class="px-4 py-2.5 bg-gray-50 border-b border-gray-200">
+                                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ $groupName }}</p>
+                                </div>
+                                <div class="divide-y divide-gray-100">
+                                    @foreach ($groupPersonas as $persona)
+                                    <label class="flex items-start gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                                        <input type="checkbox"
+                                               name="personas[]"
+                                               value="{{ $persona['key'] }}"
+                                               {{ in_array($persona['key'], old('personas', ['enterprise_automation'])) ? 'checked' : '' }}
+                                               class="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#083763] focus:ring-[#67EADD]">
+                                        <div>
+                                            <p class="text-sm font-semibold text-gray-800">{{ $persona['label'] }}</p>
+                                            <p class="text-xs text-gray-400 mt-0.5">{{ $persona['audience'] }}</p>
+                                        </div>
+                                    </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <p class="text-gray-400 text-xs mt-3">Each additional persona adds ~20–30 seconds to generation time.</p>
+                    </div>
+
                     <div class="bg-[#E1FFEC] border border-[#B3FEF7] rounded-xl p-5 text-sm text-[#083763]">
                         <p class="font-semibold mb-2">What gets generated</p>
                         <div class="grid sm:grid-cols-2 gap-3">

@@ -50,9 +50,43 @@
 
 {{-- Packages --}}
 <section class="bg-[#F4F2E3] py-16 px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto space-y-5">
+    @php
+        $packagesByPersona = $campaign->packages->groupBy('persona');
+        $activePersonaKeys = $packagesByPersona->keys()->toArray();
+        $firstPersona      = $activePersonaKeys[0] ?? null;
+        $hasMultiplePersonas = count($activePersonaKeys) > 1;
+    @endphp
 
-        @foreach($campaign->packages as $package)
+    <div x-data="{ persona: '{{ $firstPersona }}' }" class="max-w-4xl mx-auto space-y-5">
+
+        {{-- Persona toggle (only shown when multiple personas) --}}
+        @if($hasMultiplePersonas)
+        <div class="bg-white rounded-2xl border border-[#E6E2D9] px-6 py-4">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Viewing copy for</p>
+            <div class="flex flex-wrap gap-2">
+                @foreach($activePersonaKeys as $pKey)
+                    @php $pDef = $personaDefs[$pKey] ?? null; @endphp
+                    @if($pDef)
+                    <button @click="persona = '{{ $pKey }}'"
+                            :class="persona === '{{ $pKey }}' ? 'bg-[#083763] text-white border-[#083763]' : 'bg-white text-gray-600 border-gray-200 hover:border-[#083763] hover:text-[#083763]'"
+                            class="text-xs font-semibold px-4 py-2 rounded-lg border transition-all">
+                        {{ $pDef['label'] }}
+                    </button>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        @elseif($firstPersona && isset($personaDefs[$firstPersona]))
+        <div class="inline-flex items-center gap-2 bg-[#E1FFEC] border border-[#B3FEF7] text-[#083763] text-xs font-semibold px-3 py-1.5 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#21DBC8] rounded-full"></span>
+            {{ $personaDefs[$firstPersona]['label'] }}
+        </div>
+        @endif
+
+        @foreach($activePersonaKeys as $pKey)
+        @php $personaPackages = $packagesByPersona[$pKey] ?? collect(); @endphp
+        <div x-show="persona === '{{ $pKey }}'" class="space-y-5">
+        @foreach($personaPackages as $package)
         <div x-data="{ tab: 'copy' }" class="bg-white rounded-2xl border border-[#E6E2D9] overflow-hidden">
             {{-- Card header --}}
             <div class="flex items-center justify-between px-7 py-5 border-b border-gray-100">
@@ -123,6 +157,8 @@
                     </button>
                 </div>
             </div>
+        </div>
+        @endforeach
         </div>
         @endforeach
 

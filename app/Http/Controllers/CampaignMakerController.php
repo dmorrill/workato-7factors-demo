@@ -19,13 +19,19 @@ class CampaignMakerController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['url' => 'required|url']);
+        $validPersonas = array_keys(\App\Services\CampaignGeneratorService::personaDefinitions());
+        $request->validate([
+            'url'       => 'required|url',
+            'personas'  => 'nullable|array',
+            'personas.*' => 'in:' . implode(',', $validPersonas),
+        ]);
 
         $extractor  = new \App\Services\ContentExtractorService();
         $generator  = new \App\Services\CampaignGeneratorService();
 
+        $personas   = $request->input('personas', ['enterprise_automation']);
         $extracted  = $extractor->extract($request->input('url'));
-        $generated  = $generator->generate($extracted);
+        $generated  = $generator->generate($extracted, $personas);
 
         $landing    = $generated['landing'];
         $packages   = $generated['packages'];
@@ -56,6 +62,7 @@ class CampaignMakerController extends Controller
             'cta_body'          => $landing['cta_body'] ?? null,
             'extracted_content' => $extracted['text'],
             'status'            => 'draft',
+            'personas'          => $personas,
         ]);
 
         foreach ($landing['concepts'] ?? [] as $i => $concept) {
@@ -73,6 +80,7 @@ class CampaignMakerController extends Controller
                 'title'   => $pkg['title'],
                 'copy'    => $pkg['copy'],
                 'status'  => 'pending',
+                'persona' => $pkg['persona'] ?? null,
             ]);
         }
 
@@ -82,7 +90,8 @@ class CampaignMakerController extends Controller
     public function show(\App\Models\Campaign $campaign)
     {
         $campaign->load(['concepts', 'packages']);
-        return view('make.show', compact('campaign'));
+        $personaDefs = \App\Services\CampaignGeneratorService::personaDefinitions();
+        return view('make.show', compact('campaign', 'personaDefs'));
     }
 
     public function updatePackage(Request $request, \App\Models\Campaign $campaign, \App\Models\CampaignPackage $package)
@@ -115,6 +124,7 @@ class CampaignMakerController extends Controller
             ->with(['concepts', 'packages'])
             ->firstOrFail();
 
-        return view('generated.campaign', compact('campaign'));
+        $personaDefs = \App\Services\CampaignGeneratorService::personaDefinitions();
+        return view('generated.campaign', compact('campaign', 'personaDefs'));
     }
 }

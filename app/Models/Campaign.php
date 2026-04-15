@@ -10,7 +10,11 @@ class Campaign extends Model
         'slug', 'source_url', 'source_type', 'video_url', 'title',
         'hero_headline', 'hero_subheadline', 'framework_name', 'framework_intro',
         'context_headline', 'context_body', 'cta_headline', 'cta_body',
-        'extracted_content', 'status',
+        'extracted_content', 'status', 'personas',
+    ];
+
+    protected $casts = [
+        'personas' => 'array',
     ];
 
     public function concepts()

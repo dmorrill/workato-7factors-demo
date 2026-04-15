@@ -107,23 +107,60 @@
         </div>
 
         {{-- Campaign packages --}}
-        <div class="bg-white rounded-2xl border border-[#E6E2D9] overflow-hidden">
-            <div class="px-8 py-5 border-b border-[#E6E2D9] flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-[#1D60CA]"></div>
-                    <h2 class="font-bold text-gray-900">Campaign packages</h2>
+        @php
+            $packagesByPersona = $campaign->packages->groupBy('persona');
+            $campaignPersonas  = $campaign->personas ?? ['enterprise_automation'];
+            // Only show tabs for personas that have packages
+            $activePersonaKeys = $packagesByPersona->keys()->toArray();
+            $firstPersona      = $activePersonaKeys[0] ?? 'enterprise_automation';
+            $hasMultiplePersonas = count($activePersonaKeys) > 1;
+        @endphp
+
+        <div x-data="{ persona: '{{ $firstPersona }}' }" class="bg-white rounded-2xl border border-[#E6E2D9] overflow-hidden">
+            <div class="px-8 py-5 border-b border-[#E6E2D9]">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 rounded-full bg-[#1D60CA]"></div>
+                        <h2 class="font-bold text-gray-900">Campaign packages</h2>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-gray-400">
+                        <span>{{ $campaign->packages->where('status', 'approved')->count() }} approved</span>
+                        <span>·</span>
+                        <span>{{ $campaign->packages->where('status', 'skipped')->count() }} skipped</span>
+                        <span>·</span>
+                        <span>{{ $campaign->packages->where('status', 'pending')->count() }} pending</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3 text-xs text-gray-400">
-                    <span>{{ $campaign->packages->where('status', 'approved')->count() }} approved</span>
-                    <span>·</span>
-                    <span>{{ $campaign->packages->where('status', 'skipped')->count() }} skipped</span>
-                    <span>·</span>
-                    <span>{{ $campaign->packages->where('status', 'pending')->count() }} pending</span>
+
+                @if($hasMultiplePersonas)
+                {{-- Persona tabs --}}
+                <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit">
+                    @foreach($activePersonaKeys as $pKey)
+                        @php $pDef = $personaDefs[$pKey] ?? null; @endphp
+                        @if($pDef)
+                        <button @click="persona = '{{ $pKey }}'"
+                                :class="persona === '{{ $pKey }}' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'"
+                                class="text-xs font-medium px-3 py-1.5 rounded-md transition-all whitespace-nowrap">
+                            {{ $pDef['label'] }}
+                        </button>
+                        @endif
+                    @endforeach
                 </div>
+                @else
+                    @php $pDef = $personaDefs[$firstPersona] ?? null; @endphp
+                    @if($pDef)
+                    <div class="inline-flex items-center gap-2 bg-[#E1FFEC] border border-[#B3FEF7] text-[#083763] text-xs font-semibold px-3 py-1.5 rounded-full">
+                        <span class="w-1.5 h-1.5 bg-[#21DBC8] rounded-full"></span>
+                        {{ $pDef['label'] }}
+                    </div>
+                    @endif
+                @endif
             </div>
 
-            <div class="divide-y divide-gray-100">
-                @foreach($campaign->packages as $package)
+            @foreach($activePersonaKeys as $pKey)
+            @php $personaPackages = $packagesByPersona[$pKey] ?? collect(); @endphp
+            <div x-show="persona === '{{ $pKey }}'" class="divide-y divide-gray-100">
+                @foreach($personaPackages as $package)
                 <div x-data="{ open: false }" class="px-8 py-5">
                     <div class="flex items-start justify-between gap-4">
                         <div class="flex items-start gap-4 flex-1 min-w-0">
@@ -170,6 +207,7 @@
                 </div>
                 @endforeach
             </div>
+            @endforeach
         </div>
 
     </div>
