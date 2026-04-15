@@ -21,17 +21,20 @@ class CampaignMakerController extends Controller
     {
         $validPersonas = array_keys(\App\Services\CampaignGeneratorService::personaDefinitions());
         $request->validate([
-            'url'       => 'required|url',
-            'personas'  => 'nullable|array',
+            'name'       => 'nullable|string|max:120',
+            'urls'       => 'required|array|min:1',
+            'urls.*'     => 'required|url',
+            'personas'   => 'nullable|array',
             'personas.*' => 'in:' . implode(',', $validPersonas),
         ]);
 
-        $extractor  = new \App\Services\ContentExtractorService();
-        $generator  = new \App\Services\CampaignGeneratorService();
+        $extractor = new \App\Services\ContentExtractorService();
+        $generator = new \App\Services\CampaignGeneratorService();
 
-        $personas   = $request->input('personas', ['enterprise_automation']);
-        $extracted  = $extractor->extract($request->input('url'));
-        $generated  = $generator->generate($extracted, $personas);
+        $urls      = array_values(array_filter($request->input('urls', [])));
+        $personas  = $request->input('personas', ['enterprise_automation']);
+        $extracted = $extractor->extractMultiple($urls);
+        $generated = $generator->generate($extracted, $personas);
 
         $landing    = $generated['landing'];
         $packages   = $generated['packages'];
@@ -48,7 +51,9 @@ class CampaignMakerController extends Controller
 
         $campaign = \App\Models\Campaign::create([
             'slug'              => $slug,
-            'source_url'        => $request->input('url'),
+            'name'              => $request->input('name') ?: null,
+            'source_url'        => $urls[0],
+            'source_urls'       => $urls,
             'source_type'       => $extracted['type'],
             'video_url'         => $extracted['video_url'] ?? null,
             'title'             => $landing['title'] ?? $extracted['title'] ?? 'Untitled',

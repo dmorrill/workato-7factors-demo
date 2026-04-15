@@ -6,6 +6,45 @@ use Illuminate\Support\Facades\Http;
 
 class ContentExtractorService
 {
+    /**
+     * Extract and combine content from multiple URLs.
+     * Returns a merged result: combined text, first URL as primary, video_url from first YouTube found.
+     */
+    public function extractMultiple(array $urls): array
+    {
+        $results  = [];
+        $videoUrl = null;
+
+        foreach ($urls as $url) {
+            $r = $this->extract(trim($url));
+            $results[] = $r;
+            if (!$videoUrl && !empty($r['video_url'])) {
+                $videoUrl = $r['video_url'];
+            }
+        }
+
+        if (count($results) === 1) {
+            return $results[0];
+        }
+
+        // Combine texts with clear source labels
+        $combinedText = '';
+        foreach ($results as $i => $r) {
+            $label = $r['title'] ?: $r['source_url'];
+            $combinedText .= "--- Source " . ($i + 1) . ": {$label} ---\n" . $r['text'] . "\n\n";
+        }
+
+        $primaryType = collect($results)->contains(fn($r) => $r['type'] === 'youtube') ? 'youtube' : 'webpage';
+
+        return [
+            'type'       => $primaryType,
+            'title'      => $results[0]['title'] ?? '',
+            'video_url'  => $videoUrl,
+            'source_url' => $results[0]['source_url'],
+            'text'       => trim($combinedText),
+        ];
+    }
+
     public function extract(string $url): array
     {
         if ($this->isYouTube($url)) {

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '{{ $campaign->title }} — Campaign Maker · Workato')
+@section('title', '{{ $campaign->displayName() }} — Campaign Maker · Workato')
 
 @section('content')
 
@@ -20,10 +20,16 @@
                     </span>
                     <span class="text-gray-500 text-xs">{{ $campaign->source_type === 'youtube' ? 'YouTube' : 'Web page' }}</span>
                 </div>
-                <h1 class="text-3xl font-bold font-display mb-2">{{ $campaign->title }}</h1>
-                <a href="{{ $campaign->source_url }}" target="_blank" class="text-gray-400 text-sm hover:text-[#67EADD] transition-colors">
-                    {{ $campaign->source_url }}
-                </a>
+                <h1 class="text-3xl font-bold font-display mb-2">{{ $campaign->displayName() }}</h1>
+                @if($campaign->name && $campaign->name !== $campaign->title)
+                    <p class="text-gray-500 text-sm mb-1 italic">{{ $campaign->title }}</p>
+                @endif
+                @php $allUrls = $campaign->source_urls ?: [$campaign->source_url]; @endphp
+                <div class="flex flex-col gap-1">
+                    @foreach($allUrls as $u)
+                    <a href="{{ $u }}" target="_blank" class="text-gray-400 text-sm hover:text-[#67EADD] transition-colors truncate max-w-lg">{{ $u }}</a>
+                    @endforeach
+                </div>
             </div>
             <div class="flex items-center gap-3 shrink-0">
                 @if($campaign->status === 'published')

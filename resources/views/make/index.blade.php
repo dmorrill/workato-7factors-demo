@@ -46,12 +46,18 @@
                class="flex items-center gap-5 bg-white rounded-xl border border-[#E6E2D9] px-6 py-4 hover:border-[#67EADD] hover:shadow-sm transition-all group">
                 <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-3 mb-1">
-                        <p class="font-semibold text-gray-900 truncate">{{ $campaign->title }}</p>
+                        <p class="font-semibold text-gray-900 truncate">{{ $campaign->displayName() }}</p>
                         <span class="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full {{ $campaign->status === 'published' ? 'bg-[#E1FFEC] text-[#083763]' : 'bg-gray-100 text-gray-500' }}">
                             {{ ucfirst($campaign->status) }}
                         </span>
                     </div>
-                    <p class="text-gray-400 text-sm truncate">{{ $campaign->source_url }}</p>
+                    @php $urlCount = count($campaign->source_urls ?? [$campaign->source_url]); @endphp
+                    <p class="text-gray-400 text-sm truncate">
+                        {{ $campaign->source_url }}
+                        @if($urlCount > 1)
+                            <span class="text-gray-300 ml-1">+{{ $urlCount - 1 }} more</span>
+                        @endif
+                    </p>
                 </div>
                 <div class="flex items-center gap-4 shrink-0 text-sm text-gray-400">
                     @if($campaign->status === 'published')
