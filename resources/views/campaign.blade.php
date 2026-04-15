@@ -157,9 +157,12 @@
                             <p class="text-sm text-gray-700 leading-relaxed whitespace-pre-line font-mono">{{ $piece['copy'] }}</p>
                         </div>
                         <div class="flex items-center gap-3 mt-4">
-                            <button class="text-xs font-semibold text-green-600 bg-green-50 hover:bg-green-100 border border-green-200 px-4 py-2 rounded-lg transition-colors">✓ Approve</button>
-                            <button class="text-xs font-semibold text-gray-500 bg-white hover:bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg transition-colors">Edit</button>
-                            <button class="text-xs font-semibold text-red-500 bg-white hover:bg-red-50 border border-gray-200 px-4 py-2 rounded-lg transition-colors">Skip</button>
+                            <button @click="openModal('✓ Approve', 'In the live system, this marks the piece as approved and queues it for distribution. It goes into a shared Notion (or Airtable) board visible to Allie and Kayla, tagged with target channel and publish window. Natala\'s approval is the only gate — no further sign-off needed.')"
+                                    class="text-xs font-semibold text-green-600 bg-green-50 hover:bg-green-100 border border-green-200 px-4 py-2 rounded-lg transition-colors cursor-pointer">✓ Approve</button>
+                            <button @click="openModal('Edit', 'In the live system, this opens an inline editor (or links to the Notion doc) where Natala can rewrite or annotate the draft. Her edits are saved, the piece is re-queued for a quick re-review before distribution. Over time, edits train the next generation of AI drafts.')"
+                                    class="text-xs font-semibold text-gray-500 bg-white hover:bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg transition-colors cursor-pointer">Edit</button>
+                            <button @click="openModal('Skip', 'In the live system, this removes the piece from the current cycle without deleting it. Skipped pieces are logged with a reason (optional) so the system learns what doesn\'t resonate. The piece can be surfaced again in a future cycle if the timing changes.')"
+                                    class="text-xs font-semibold text-red-500 bg-white hover:bg-red-50 border border-gray-200 px-4 py-2 rounded-lg transition-colors cursor-pointer">Skip</button>
                         </div>
                     </div>
                 </div>
