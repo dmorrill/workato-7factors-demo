@@ -22,7 +22,7 @@
                 Explore the framework
             </a>
             <button @click="openModal('Download white paper', 'This would open a PDF download of the Seven Factors white paper series. Each of the 7 factors has a dedicated deep-dive document covering architectural patterns, real-world examples, and implementation guidance. In production, gated behind a simple email capture form.')"
-                    class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base cursor-pointer">
+                    class="bg-[#0C3A70] border border-gray-600 hover:border-gray-400 hover:bg-[#0D4080] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base cursor-pointer">
                 Download white paper
             </button>
         </div>

@@ -37,5 +37,5 @@
     background-image: url('/dots-pattern-lite.png');
     background-size: 280px 280px;
     background-repeat: repeat;
-    background-blend-mode: overlay;
+    background-blend-mode: soft-light;
 }
