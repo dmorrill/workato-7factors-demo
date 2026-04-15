@@ -33,6 +33,6 @@
     font-family: 'JetBrains Mono', 'Inconsolata', ui-monospace, monospace;
 }
 
-@utility bg-hero-gradient {
-    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(103, 234, 221, 0.18) 0%, #083763 65%);
+@utility bg-hero-dark {
+    background-color: #083763;
 }

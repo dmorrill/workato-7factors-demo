@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Header --}}
-<section class="bg-hero-gradient text-white py-20 px-6 lg:px-8">
+<section class="bg-hero-dark text-white py-20 px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-[#0C3A70] border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 mb-8">
             <span class="w-2 h-2 bg-[#67EADD] rounded-full"></span>
