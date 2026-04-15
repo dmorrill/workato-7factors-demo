@@ -33,9 +33,6 @@
     font-family: 'JetBrains Mono', 'Inconsolata', ui-monospace, monospace;
 }
 
-@utility bg-dot-pattern {
-    background-image: url('/dots-pattern-lite.png');
-    background-size: 280px 280px;
-    background-repeat: repeat;
-    background-blend-mode: soft-light;
+@utility bg-hero-gradient {
+    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(103, 234, 221, 0.18) 0%, #083763 65%);
 }
