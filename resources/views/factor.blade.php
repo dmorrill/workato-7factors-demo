@@ -133,12 +133,14 @@
         <h2 class="text-2xl font-bold text-white mb-3">This is a living framework.</h2>
         <p class="text-gray-400 leading-relaxed mb-8">We want contributors. If your team has learned something building agentic systems in production that belongs here, we want to hear it.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#" class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-7 py-3 rounded-lg transition-colors">
+            <button @click="openModal('Contribute on GitHub', 'This would link to the CONTRIBUTING.md on the Seven Factors GitHub repository. If your team has learned something in production that belongs here — a new pattern, a correction, a real-world example — the process for submitting it lives there. The framework is explicitly designed to evolve with community input.')"
+                    class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-7 py-3 rounded-lg transition-colors cursor-pointer">
                 Contribute on GitHub
-            </a>
-            <a href="{{ url('/') }}#whitepaper" class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-7 py-3 rounded-lg transition-colors">
+            </button>
+            <button @click="openModal('Download white papers', 'This would trigger a download of the full Seven Factors white paper series — one deep-dive document per factor. Each covers architectural patterns, real-world implementation examples, and concrete design rules. In production, gated behind a simple email capture form.')"
+                    class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-7 py-3 rounded-lg transition-colors cursor-pointer">
                 Download white papers
-            </a>
+            </button>
         </div>
     </div>
 </section>

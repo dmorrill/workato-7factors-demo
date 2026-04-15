@@ -21,9 +21,10 @@
             <a href="#factors" class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base">
                 Explore the framework
             </a>
-            <a href="#whitepaper" class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base">
+            <button @click="openModal('Download white paper', 'This would open a PDF download of the Seven Factors white paper series. Each of the 7 factors has a dedicated deep-dive document covering architectural patterns, real-world examples, and implementation guidance. In production, gated behind a simple email capture form.')"
+                    class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base cursor-pointer">
                 Download white paper
-            </a>
+            </button>
         </div>
     </div>
 </section>
@@ -181,12 +182,14 @@
                     This is an open, living framework. We want contributors. If your team has learned something in production that belongs here, we want to hear it.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="#" class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-6 py-3 rounded-lg text-sm transition-colors text-center">
+                    <button @click="openModal('Download white papers', 'This would trigger a PDF download of the full Seven Factors white paper series — one deep-dive document per factor. Each covers architectural patterns, real-world examples, and implementation guidance. In production, gated behind a simple email capture form.')"
+                            class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-6 py-3 rounded-lg text-sm transition-colors text-center cursor-pointer">
                         Download white papers
-                    </a>
-                    <a href="#" class="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold px-6 py-3 rounded-lg text-sm transition-colors text-center">
+                    </button>
+                    <button @click="openModal('View on GitHub', 'This would link to the Seven Factors GitHub repository — including the white paper source files, the Dewy Resort reference implementation showing each factor in a real agentic system, and CONTRIBUTING.md for community submissions.')"
+                            class="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold px-6 py-3 rounded-lg text-sm transition-colors text-center cursor-pointer">
                         View on GitHub
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
@@ -245,14 +248,16 @@
             The themes in these seven factors are converging across the field. We built this from production experience across thousands of enterprise deployments — but we don't think we have all the answers. Join us in building the reliability bar for agents everywhere.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#" class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
+            <button @click="openModal('Contribute to the framework', 'This would link to the CONTRIBUTING.md on the Seven Factors GitHub repository. The process: fork the repo, add your pattern or correction with real-world context, open a PR. The maintainers review for fit with the existing factors. Community contributions are how this becomes an industry standard rather than a Workato document.')"
+                    class="bg-[#FF5F36] hover:bg-[#E54E27] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors cursor-pointer">
                 Contribute to the framework
-            </a>
-            <a href="#" class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
+            </button>
+            <button @click="openModal('Dewy Resort (open source)', 'This would link to the Dewy Resort GitHub repository — an open-source reference implementation of the Seven Factors architectural patterns. It shows each factor implemented in a real agentic system: governed operations, deterministic mutations, bounded access, and the rest. Clone it and see the patterns in action.')"
+                    class="border border-gray-600 hover:border-gray-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors cursor-pointer">
                 See Dewy Resort (open source)
-            </a>
+            </button>
         </div>
-        <p class="text-gray-600 text-sm mt-8">Built by <a href="#" class="text-gray-400 hover:text-white transition-colors">Zayne Turner</a> and the Workato developer platform team · <a href="#" class="text-gray-400 hover:text-white transition-colors">workato.com/7factors</a></p>
+        <p class="text-gray-600 text-sm mt-8">Built by <button @click="openModal('Zayne Turner', 'Zayne Turner is a Staff Developer Advocate at Workato and the primary author of the Seven Factors framework. He built this from first principles — from real architectural decisions made while building enterprise agentic systems. His MCP content series on the Workato blog (Dec 2025–Feb 2026) is the intellectual foundation for the framework.')" class="text-gray-400 hover:text-white transition-colors">Zayne Turner</button> and the Workato developer platform team · <button @click="openModal('workato.com/7factors', 'This is the production URL for the Seven Factors framework — the page you\'re looking at in its current form. This mock-up is a design concept showing what a redesigned version of that page could look like, with better visual hierarchy, an embedded keynote video, and a clearer community contribution path.')" class="text-gray-400 hover:text-white transition-colors">workato.com/7factors</button></p>
     </div>
 </section>
 
