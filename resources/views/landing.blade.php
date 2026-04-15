@@ -15,7 +15,7 @@
             You're building agents faster<br class="hidden md:block"> than your governance can keep up.
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10">
-            The Seven Factors of the Agentic Control Plane is an open framework for building reliable, secure, enterprise-grade autonomous agent systems — distilled from production deployments across thousands of enterprises.
+            An open framework for building AI agents your business can actually trust — drawn from real deployments at thousands of enterprises. Seven principles for the gap between what AI can do and what your company can afford to get wrong.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#factors" class="bg-[#67EADD] hover:bg-[#21DBC8] text-[#083763] font-semibold px-8 py-3.5 rounded-lg transition-colors text-base">
@@ -52,8 +52,8 @@
 <section class="bg-[#F4F2E3] py-24 px-6 lg:px-8">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-4">Every agentic system has two layers.</h2>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto">Whether you've designed for it or not. The question is whether they're working together correctly.</p>
+            <h2 class="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-4">Every AI agent is running on two layers.</h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">Whether you designed it that way or not. The question is whether they're working together correctly.</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6 mb-12">
@@ -70,9 +70,9 @@
                         <h3 class="font-bold text-gray-900 text-lg">Reasoning Layer</h3>
                     </div>
                 </div>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">The LLM and agent logic. Handles intent, planning, and deciding what should happen next. This is a <strong class="text-gray-700">probabilistic layer</strong> — it may or may not do things correctly.</p>
+                <p class="text-gray-500 text-sm mb-4 leading-relaxed">The AI brain. It interprets requests, makes plans, and decides what to do next. Powerful — but not guaranteed. It may interpret the same situation differently every time.</p>
                 <div class="flex flex-wrap gap-2">
-                    @foreach(['LLM', 'Agent logic', 'Intent', 'Planning', 'Orchestration'] as $tag)
+                    @foreach(['AI model', 'Agent logic', 'Intent', 'Planning', 'Orchestration'] as $tag)
                     <span class="bg-[#D3EEFA] text-[#083763] text-xs font-medium px-3 py-1 rounded-full">{{ $tag }}</span>
                     @endforeach
                 </div>
@@ -91,9 +91,9 @@
                         <h3 class="font-bold text-gray-900 text-lg">Control Plane</h3>
                     </div>
                 </div>
-                <p class="text-gray-600 text-sm mb-4 leading-relaxed">Where governance, authentication, authorization, and business logic live. This layer <strong class="text-gray-800">must be correct every single time</strong> — because in business, there are consequences.</p>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">Where your rules, permissions, and business logic live. This layer <strong class="text-gray-800">must be correct every single time</strong> — because in business, mistakes have real consequences.</p>
                 <div class="flex flex-wrap gap-2">
-                    @foreach(['Governance', 'Auth', 'Business logic', 'Mutations', 'Observability'] as $tag)
+                    @foreach(['Governance', 'Permissions', 'Business logic', 'Data writes', 'Observability'] as $tag)
                     <span class="bg-[#E1FFEC] text-[#67EADD] text-xs font-medium px-3 py-1 rounded-full border border-[#B3FEF7]">{{ $tag }}</span>
                     @endforeach
                 </div>
@@ -114,18 +114,18 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold font-display text-white mb-4">The Seven Factors</h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Does your agent have a control plane? These seven factors tell you whether your agentic system is built for enterprise reliability.</p>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Does your AI agent have the right guardrails? These seven principles define what it means to be enterprise-ready.</p>
         </div>
 
         @php
         $factors = [
-            [1, '01', 'Governed Operations', 'No enterprise concern delegates to an agentic protocol.'],
-            [2, '02', 'Deterministic Mutations', 'All state mutations belong to the control plane.'],
-            [3, '03', 'Intent-Based Communication', 'Tool boundaries follow intent, not implementation.'],
-            [4, '04', 'Bounded Access', 'Each caller sees only the capabilities its role requires.'],
-            [5, '05', 'Safe Retries', 'Every mutation is safely retried by a probabilistic caller.'],
-            [6, '06', 'Recovery Contracts', 'The reasoning layer never guesses at state.'],
-            [7, '07', 'Structural Observability', 'Every agent action is reconstructable by architecture.'],
+            [1, '01', 'Governed Operations', 'Business rules and compliance stay with your systems — the AI protocol doesn\'t own them.'],
+            [2, '02', 'Deterministic Mutations', 'Every data change runs through your business logic, not the AI\'s discretion.'],
+            [3, '03', 'Intent-Based Communication', 'The AI knows what it can accomplish — not how your systems work under the hood.'],
+            [4, '04', 'Bounded Access', 'Every agent only gets access to what its role actually requires — nothing more.'],
+            [5, '05', 'Safe Retries', 'When an AI action fails, it can try again without creating duplicate transactions or corrupting data.'],
+            [6, '06', 'Recovery Contracts', 'When something fails, the AI is told exactly what happened — it never has to guess.'],
+            [7, '07', 'Structural Observability', 'Every action an agent takes is fully auditable — built into the architecture, not bolted on afterward.'],
         ];
         @endphp
 
@@ -152,7 +152,7 @@
     <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Does your agent have a control plane?</h2>
-            <p class="text-gray-500">A quick self-assessment for architects and engineering leads evaluating their agentic deployments.</p>
+            <p class="text-gray-500">A quick checklist for anyone evaluating whether their AI agents are ready for enterprise use.</p>
         </div>
         <div class="space-y-3">
             @foreach(\App\Data\Factors::all() as $n => $factor)
@@ -176,7 +176,7 @@
             <div>
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Go deeper on each factor.</h2>
                 <p class="text-gray-500 leading-relaxed mb-6">
-                    The Seven Factors white paper series goes live with the framework launch. Each factor gets a dedicated deep-dive — architectural patterns, real-world examples, and implementation guidance for enterprise deployments.
+                    The Seven Factors white paper series goes live with the framework launch. Each factor gets a dedicated deep-dive — the reasoning behind the principle, real-world examples, and guidance for putting it into practice.
                 </p>
                 <p class="text-gray-500 leading-relaxed mb-8">
                     This is an open, living framework. We want contributors. If your team has learned something in production that belongs here, we want to hear it.
@@ -223,7 +223,7 @@
                     <div class="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center shrink-0 text-lg font-bold text-gray-500">12</div>
                     <div>
                         <p class="font-bold text-gray-900 mb-1">Twelve-Factor App <span class="text-gray-400 font-normal text-sm">— 2011</span></p>
-                        <p class="text-gray-500 text-sm leading-relaxed">A methodology for building cloud-native SaaS apps. Published at Heroku, adopted by the industry. Still the reference for platform engineers a decade later.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">A set of principles for building modern web applications. Published at Heroku, adopted by the industry. Still the standard for cloud development a decade later.</p>
                         <p class="text-gray-400 text-xs mt-2">Scope: How apps should be built for the cloud.</p>
                     </div>
                 </div>
