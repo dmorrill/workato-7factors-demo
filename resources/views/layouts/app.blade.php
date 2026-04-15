@@ -6,7 +6,7 @@
     <title>@yield('title', 'Seven Factors of the Agentic Control Plane — Workato')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -42,7 +42,7 @@
              x-transition:enter-end="opacity-100 scale-100">
             <div class="flex items-start justify-between mb-5">
                 <div class="flex items-center gap-2">
-                    <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">Mock</span>
+                    <span class="bg-[#E1FFEC] text-[#083763] text-xs font-semibold px-2.5 py-1 rounded-full">Mock</span>
                     <span class="text-gray-400 text-xs">Design concept — not live</span>
                 </div>
                 <button @click="modal = false" class="text-gray-400 hover:text-gray-600 transition-colors">
@@ -51,10 +51,10 @@
                     </svg>
                 </button>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-3" x-text="modalTitle"></h3>
+            <h3 class="text-lg font-bold text-[#083763] mb-3 font-display" x-text="modalTitle"></h3>
             <p class="text-gray-500 text-sm leading-relaxed" x-text="modalBody"></p>
             <button @click="modal = false"
-                    class="mt-6 w-full bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-colors">
+                    class="mt-6 w-full bg-[#083763] hover:bg-[#0C3A70] text-white font-semibold py-2.5 rounded-lg text-sm transition-colors">
                 Got it
             </button>
         </div>
@@ -66,29 +66,30 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-10">
                     <a href="/" class="flex items-center gap-2 shrink-0">
+                        {{-- Wolf2 logo: single-color dark navy on white background --}}
                         <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="32" height="32" rx="8" fill="#FF5F36"/>
+                            <rect width="32" height="32" rx="8" fill="#083763"/>
                             <path d="M8 10h3.5l2.5 8 2.5-8h3l2.5 8 2.5-8H28l-4.5 12h-3l-2.5-7.5L15.5 22h-3L8 10z" fill="white"/>
                         </svg>
-                        <span class="text-xl font-bold text-gray-900 tracking-tight">workato</span>
+                        <span class="text-xl font-bold text-[#083763] tracking-tight">workato</span>
                     </a>
                     <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                        <a href="#" class="hover:text-gray-900 transition-colors"
+                        <a href="#" class="hover:text-[#083763] transition-colors"
                            @click.prevent="openModal('Platform', 'This would link to the main Workato platform overview — Enterprise MCP, Workato ONE, and the full integration and automation suite.')">Platform</a>
-                        <a href="#" class="hover:text-gray-900 transition-colors"
+                        <a href="#" class="hover:text-[#083763] transition-colors"
                            @click.prevent="openModal('Agents', 'This would link to the Workato Agents product page — including Otto, the AI super-app for employees, and the agentic automation suite.')">Agents</a>
-                        <a href="#" class="hover:text-gray-900 transition-colors"
+                        <a href="#" class="hover:text-[#083763] transition-colors"
                            @click.prevent="openModal('Solutions', 'This would link to the Workato solutions directory — use cases by industry, function, and integration type.')">Solutions</a>
-                        <a href="#" class="hover:text-gray-900 transition-colors"
+                        <a href="#" class="hover:text-[#083763] transition-colors"
                            @click.prevent="openModal('Resources', 'This would link to the Workato resource library — documentation, blog, Academy curriculum, and developer guides.')">Resources</a>
-                        <a href="#" class="hover:text-gray-900 transition-colors"
+                        <a href="#" class="hover:text-[#083763] transition-colors"
                            @click.prevent="openModal('Partners', 'This would link to the Workato partner ecosystem — system integrators, technology partners, and the marketplace.')">Partners</a>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="{{ url('/campaign') }}" class="hidden md:block text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Campaign brief →</a>
+                    <a href="{{ url('/campaign') }}" class="hidden md:block text-sm font-medium text-gray-600 hover:text-[#083763] transition-colors">Campaign brief →</a>
                     <button @click="openModal('Get a trial', 'This would open the Workato Developer Sandbox signup — a free, permanent self-serve environment with 1,000+ connectors, 50K free credits, and AI automations. No credit card required.')"
-                            class="bg-[#FF5F36] hover:bg-[#E54E27] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer">
+                            class="bg-[#1D60CA] hover:bg-[#1A58C0] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer">
                         Get a trial
                     </button>
                 </div>
@@ -99,14 +100,15 @@
     @yield('content')
 
     {{-- Footer --}}
-    <footer class="bg-[#0D0F2B] text-gray-400 py-16">
+    <footer class="bg-[#083763] text-gray-400 py-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
+                        {{-- Wolf2 logo: teal mark on dark background --}}
                         <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="32" height="32" rx="8" fill="#FF5F36"/>
-                            <path d="M8 10h3.5l2.5 8 2.5-8h3l2.5 8 2.5-8H28l-4.5 12h-3l-2.5-7.5L15.5 22h-3L8 10z" fill="white"/>
+                            <rect width="32" height="32" rx="8" fill="#67EADD"/>
+                            <path d="M8 10h3.5l2.5 8 2.5-8h3l2.5 8 2.5-8H28l-4.5 12h-3l-2.5-7.5L15.5 22h-3L8 10z" fill="#083763"/>
                         </svg>
                         <span class="text-white font-bold text-lg tracking-tight">workato</span>
                     </div>
@@ -115,32 +117,32 @@
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-4">Framework</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="/" class="hover:text-white transition-colors">The Seven Factors</a></li>
-                        <li><button @click="openModal('White papers', 'This would open the Seven Factors white paper series — a PDF download of all seven deep-dive documents. Each covers architectural patterns, real-world examples, and implementation guidance for that factor. In production, gated behind a simple email capture.')" class="hover:text-white transition-colors text-left">White papers</button></li>
-                        <li><button @click="openModal('Open source', 'This would link to the Dewy Resort GitHub repository — an open-source reference implementation showing the Seven Factors architectural patterns in action. Clone it, explore the patterns, and see how each factor is implemented in a real agentic system.')" class="hover:text-white transition-colors text-left">Open source</button></li>
-                        <li><button @click="openModal('Contribute', 'This would link to the CONTRIBUTING.md on the Seven Factors GitHub repository. The framework is explicitly designed for community contributions — if your team has learned something building agentic systems in production that belongs here, the process for submitting it lives there.')" class="hover:text-white transition-colors text-left">Contribute</button></li>
+                        <li><a href="/" class="hover:text-[#67EADD] transition-colors">The Seven Factors</a></li>
+                        <li><button @click="openModal('White papers', 'This would open the Seven Factors white paper series — a PDF download of all seven deep-dive documents. Each covers architectural patterns, real-world examples, and implementation guidance for that factor. In production, gated behind a simple email capture.')" class="hover:text-[#67EADD] transition-colors text-left">White papers</button></li>
+                        <li><button @click="openModal('Open source', 'This would link to the Dewy Resort GitHub repository — an open-source reference implementation showing the Seven Factors architectural patterns in action. Clone it, explore the patterns, and see how each factor is implemented in a real agentic system.')" class="hover:text-[#67EADD] transition-colors text-left">Open source</button></li>
+                        <li><button @click="openModal('Contribute', 'This would link to the CONTRIBUTING.md on the Seven Factors GitHub repository. The framework is explicitly designed for community contributions — if your team has learned something building agentic systems in production that belongs here, the process for submitting it lives there.')" class="hover:text-[#67EADD] transition-colors text-left">Contribute</button></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-4">Platform</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><button @click="openModal('Enterprise MCP', 'This would link to the Workato Enterprise MCP product page — production-ready Model Context Protocol servers that make SaaS products agent-ready. Partners include Anthropic, AWS, Atlassian, and Box.')" class="hover:text-white transition-colors text-left">Enterprise MCP</button></li>
-                        <li><button @click="openModal('Developer Sandbox', 'This would link to the Workato Developer Sandbox signup — a free, permanent self-serve environment launched August 2025. Includes 1,000+ connectors, 50K free credits, AI automations, and MCP integrations.')" class="hover:text-white transition-colors text-left">Developer Sandbox</button></li>
-                        <li><button @click="openModal('Workato ONE', 'This would link to the Workato ONE unified platform page — integration, orchestration, and AI agents in a single platform.')" class="hover:text-white transition-colors text-left">Workato ONE</button></li>
-                        <li><button @click="openModal('Documentation', 'This would link to the Workato developer documentation — API references, integration guides, and the full SDK documentation.')" class="hover:text-white transition-colors text-left">Documentation</button></li>
+                        <li><button @click="openModal('Enterprise MCP', 'This would link to the Workato Enterprise MCP product page — production-ready Model Context Protocol servers that make SaaS products agent-ready. Partners include Anthropic, AWS, Atlassian, and Box.')" class="hover:text-[#67EADD] transition-colors text-left">Enterprise MCP</button></li>
+                        <li><button @click="openModal('Developer Sandbox', 'This would link to the Workato Developer Sandbox signup — a free, permanent self-serve environment launched August 2025. Includes 1,000+ connectors, 50K free credits, AI automations, and MCP integrations.')" class="hover:text-[#67EADD] transition-colors text-left">Developer Sandbox</button></li>
+                        <li><button @click="openModal('Workato ONE', 'This would link to the Workato ONE unified platform page — integration, orchestration, and AI agents in a single platform.')" class="hover:text-[#67EADD] transition-colors text-left">Workato ONE</button></li>
+                        <li><button @click="openModal('Documentation', 'This would link to the Workato developer documentation — API references, integration guides, and the full SDK documentation.')" class="hover:text-[#67EADD] transition-colors text-left">Documentation</button></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-4">Community</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><button @click="openModal('Developer community', 'This would link to the Workato developer community — forums, the DAB (Developer Advisory Board), community-built recipes, and the marketplace with 1M+ user-contributed automations.')" class="hover:text-white transition-colors text-left">Developer community</button></li>
-                        <li><button @click="openModal('GitHub', 'This would link to the Workato GitHub organization — including Workato Labs, the Dewy Resort reference implementation, open-source tooling, and the Seven Factors framework repository.')" class="hover:text-white transition-colors text-left">GitHub</button></li>
-                        <li><button @click="openModal('Events', 'This would link to the Workato events calendar — developer meetups, conference appearances, MCP dev summits, and community workshops.')" class="hover:text-white transition-colors text-left">Events</button></li>
-                        <li><button @click="openModal('Blog', 'This would link to the Workato developer blog — including Zayne Turner\'s MCP content series and technical deep-dives on agentic architecture.')" class="hover:text-white transition-colors text-left">Blog</button></li>
+                        <li><button @click="openModal('Developer community', 'This would link to the Workato developer community — forums, the DAB (Developer Advisory Board), community-built recipes, and the marketplace with 1M+ user-contributed automations.')" class="hover:text-[#67EADD] transition-colors text-left">Developer community</button></li>
+                        <li><button @click="openModal('GitHub', 'This would link to the Workato GitHub organization — including Workato Labs, the Dewy Resort reference implementation, open-source tooling, and the Seven Factors framework repository.')" class="hover:text-[#67EADD] transition-colors text-left">GitHub</button></li>
+                        <li><button @click="openModal('Events', 'This would link to the Workato events calendar — developer meetups, conference appearances, MCP dev summits, and community workshops.')" class="hover:text-[#67EADD] transition-colors text-left">Events</button></li>
+                        <li><button @click="openModal('Blog', 'This would link to the Workato developer blog — including Zayne Turner\'s MCP content series and technical deep-dives on agentic architecture.')" class="hover:text-[#67EADD] transition-colors text-left">Blog</button></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="border-t border-[#0C3A70] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-sm">© {{ date('Y') }} Workato, Inc. All rights reserved.</p>
                 <p class="text-sm text-gray-500">This is a design concept for internal review.</p>
             </div>

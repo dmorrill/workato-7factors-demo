@@ -5,13 +5,13 @@
 @section('content')
 
 {{-- Header --}}
-<section class="bg-[#0D0F2B] text-white py-20 px-6 lg:px-8">
+<section class="bg-[#083763] text-white py-20 px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 bg-[#1A1D3E] border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 mb-8">
-            <span class="w-2 h-2 bg-[#FF5F36] rounded-full"></span>
+        <div class="inline-flex items-center gap-2 bg-[#0C3A70] border border-gray-700 rounded-full px-4 py-2 text-sm text-gray-300 mb-8">
+            <span class="w-2 h-2 bg-[#67EADD] rounded-full"></span>
             WS1 · Content Amplification · Campaign Template
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">What a content campaign looks like<br class="hidden md:block"> when the system works.</h1>
+        <h1 class="text-4xl md:text-5xl font-bold font-display mb-5 leading-tight">What a content campaign looks like<br class="hidden md:block"> when the system works.</h1>
         <p class="text-gray-300 text-lg leading-relaxed max-w-3xl">
             One anchor piece. Six distribution-ready content packages. A 15-minute review process. This is the template — for this keynote and every piece of anchor content that follows.
         </p>
@@ -21,7 +21,7 @@
 {{-- Anchor content --}}
 <section class="bg-white py-16 px-6 lg:px-8 border-b border-gray-200">
     <div class="max-w-4xl mx-auto">
-        <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-3">Anchor Content</p>
+        <p class="text-xs font-semibold text-[#67EADD] uppercase tracking-wider mb-3">Anchor Content</p>
         <div class="flex flex-col md:flex-row gap-8 items-start">
             <div class="flex-1">
                 <h2 class="text-2xl font-bold text-gray-900 mb-2">Enterprise MCP: The Data Plane for Autonomous Agents</h2>
@@ -30,14 +30,14 @@
                     <span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg font-medium">~8 minutes</span>
                     <span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg font-medium">YouTube · Public</span>
                     <span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg font-medium">Full transcript available</span>
-                    <span class="bg-orange-50 text-[#FF5F36] px-3 py-1.5 rounded-lg font-medium border border-orange-200">0 distribution actions taken</span>
+                    <span class="bg-orange-50 text-[#67EADD] px-3 py-1.5 rounded-lg font-medium border border-orange-200">0 distribution actions taken</span>
                 </div>
             </div>
-            <a href="https://www.youtube.com/watch?v=zsQjoUECVRc" target="_blank" class="shrink-0 block w-full md:w-64 rounded-xl overflow-hidden border border-gray-200 hover:border-[#FF5F36] transition-colors group">
+            <a href="https://www.youtube.com/watch?v=zsQjoUECVRc" target="_blank" class="shrink-0 block w-full md:w-64 rounded-xl overflow-hidden border border-gray-200 hover:border-[#67EADD] transition-colors group">
                 <div class="bg-gray-900 aspect-video flex items-center justify-center relative">
                     <img src="https://img.youtube.com/vi/zsQjoUECVRc/mqdefault.jpg" alt="Keynote thumbnail" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-                        <div class="w-12 h-12 bg-[#FF5F36] rounded-full flex items-center justify-center">
+                        <div class="w-12 h-12 bg-[#67EADD] rounded-full flex items-center justify-center">
                             <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center justify-between mb-10">
             <div>
-                <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-2">Campaign Package</p>
+                <p class="text-xs font-semibold text-[#67EADD] uppercase tracking-wider mb-2">Campaign Package</p>
                 <h2 class="text-2xl font-bold text-gray-900">6 content pieces, ready for review.</h2>
             </div>
             <div class="hidden md:flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-3 text-sm">
@@ -98,7 +98,7 @@
                 'type' => 'CTA Post',
                 'audience' => 'Anyone who engaged with pieces 01–03',
                 'angle' => 'Drive to /7factors and white papers',
-                'platform_color' => 'bg-orange-50 text-[#FF5F36] border-orange-200',
+                'platform_color' => 'bg-orange-50 text-[#67EADD] border-orange-200',
                 'why' => 'Closes the loop. Converts engagement on the individual angles into traffic to the anchor. Times well 2–3 days after the primary posts go out.',
                 'copy' => "We published the Seven Factors of the Agentic Control Plane at this week's MCP Dev Summit in New York.\n\nIt's an open framework — built from production experience across thousands of enterprise deployments, and we want contributors.\n\nIf your team has learned something building agentic systems that belongs here, we want to hear it.\n\nWhite papers are live. Framework is open.\n\nworkato.com/7factors",
             ],
@@ -171,21 +171,21 @@
 
                         {{-- Image tab --}}
                         <div x-show="tab === 'image'" style="display: none;">
-                            <div class="bg-[#0D0F2B] rounded-xl border border-gray-200 overflow-hidden aspect-square max-w-sm flex flex-col items-center justify-center gap-4 p-8 text-center relative">
+                            <div class="bg-[#083763] rounded-xl border border-gray-200 overflow-hidden aspect-square max-w-sm flex flex-col items-center justify-center gap-4 p-8 text-center relative">
                                 {{-- Decorative background grid --}}
                                 <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(0deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 40px);"></div>
                                 {{-- Workato logo mark --}}
                                 <div class="relative z-10">
                                     <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-3">
-                                        <rect width="32" height="32" rx="8" fill="#FF5F36"/>
+                                        <rect width="32" height="32" rx="8" fill="#67EADD"/>
                                         <path d="M8 10h3.5l2.5 8 2.5-8h3l2.5 8 2.5-8H28l-4.5 12h-3l-2.5-7.5L15.5 22h-3L8 10z" fill="white"/>
                                     </svg>
                                     <p class="text-white font-bold text-lg leading-tight">{{ $piece['angle'] }}</p>
-                                    <p class="text-[#FF5F36] text-xs font-semibold uppercase tracking-wider mt-2">Seven Factors · workato.com/7factors</p>
+                                    <p class="text-[#67EADD] text-xs font-semibold uppercase tracking-wider mt-2">Seven Factors · workato.com/7factors</p>
                                 </div>
                                 {{-- Generate button --}}
                                 <button @click="openModal('Generate social image', 'In the live system, this triggers the wolf2-design-system brand kit skill to generate an on-brand social image for this post. The skill has Workato\'s full brand guidelines — colors, typography, logo rules, and layout templates. Zayne Turner uses the same skill to build slide decks. The output is a 1:1 social card ready for LinkedIn, Twitter/X, and Instagram. Natala reviews the image alongside the copy before approving.')"
-                                        class="relative z-10 bg-[#FF5F36] hover:bg-[#E54E27] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer mt-2">
+                                        class="relative z-10 bg-[#67EADD] hover:bg-[#21DBC8] text-[#083763] text-xs font-semibold px-4 py-2 rounded-lg transition-colors cursor-pointer mt-2">
                                     Generate with brand kit →
                                 </button>
                             </div>
@@ -213,7 +213,7 @@
     <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-start">
             <div>
-                <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-3">The Process</p>
+                <p class="text-xs font-semibold text-[#67EADD] uppercase tracking-wider mb-3">The Process</p>
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">How this runs — every time.</h2>
                 <p class="text-gray-500 leading-relaxed mb-8">
                     The system is designed so Natala's time is a 15-minute review, not a production task. AI handles the derivation. The team handles the distribution. The review is the judgment gate.
@@ -230,7 +230,7 @@
                     @endphp
                     @foreach($steps as $s)
                     <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-[#FF5F36] text-white flex items-center justify-center text-sm font-bold shrink-0">{{ $s['step'] }}</div>
+                        <div class="w-8 h-8 rounded-full bg-[#67EADD] text-[#083763] flex items-center justify-center text-sm font-bold shrink-0">{{ $s['step'] }}</div>
                         <div>
                             <p class="font-semibold text-gray-900 text-sm">{{ $s['title'] }}</p>
                             <p class="text-gray-500 text-sm mt-0.5">{{ $s['desc'] }}</p>
@@ -241,7 +241,7 @@
             </div>
 
             <div>
-                <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-3">The Template</p>
+                <p class="text-xs font-semibold text-[#67EADD] uppercase tracking-wider mb-3">The Template</p>
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">This works for any anchor piece.</h2>
                 <p class="text-gray-500 leading-relaxed mb-6">
                     The Seven Factors keynote is the first run. The pattern applies to everything that follows.
@@ -259,13 +259,13 @@
                     @endphp
                     @foreach($examples as $ex)
                     <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                        <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F36] shrink-0"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#67EADD] shrink-0"></div>
                         <p class="text-sm text-gray-700">{{ $ex }}</p>
                     </div>
                     @endforeach
                 </div>
 
-                <div class="mt-8 p-6 bg-[#0D0F2B] rounded-2xl text-white">
+                <div class="mt-8 p-6 bg-[#083763] rounded-2xl text-white">
                     <p class="text-sm font-semibold mb-2">The goal</p>
                     <p class="text-gray-300 text-sm leading-relaxed">
                         When the Developer Advocate hire is made, they inherit a system that already works — not a blank slate. The process, the templates, and the distribution relationships are already in place.
@@ -277,14 +277,14 @@
 </section>
 
 {{-- Bottom CTA --}}
-<section class="bg-[#FF5F36] py-16 px-6 lg:px-8">
+<section class="bg-[#67EADD] py-16 px-6 lg:px-8">
     <div class="max-w-3xl mx-auto text-center text-white">
         <h2 class="text-2xl font-bold mb-3">Ready to run it.</h2>
         <p class="text-orange-100 leading-relaxed mb-8">
             Five pieces, one anchor, 15-minute review. The Seven Factors keynote is ready to go. This brief is the Natala review package for the first run.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="{{ url('/') }}" class="bg-white text-[#FF5F36] font-semibold px-7 py-3 rounded-lg hover:bg-orange-50 transition-colors">
+            <a href="{{ url('/') }}" class="bg-white text-[#67EADD] font-semibold px-7 py-3 rounded-lg hover:bg-orange-50 transition-colors">
                 View the landing page →
             </a>
             <a href="https://www.youtube.com/watch?v=zsQjoUECVRc" target="_blank" class="border border-white/50 text-white font-semibold px-7 py-3 rounded-lg hover:bg-white/10 transition-colors">
