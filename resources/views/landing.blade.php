@@ -202,6 +202,42 @@
     </div>
 </section>
 
+{{-- Twelve-Factor framing --}}
+<section class="bg-white py-20 px-6 lg:px-8 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-4">The ambition</p>
+                <h2 class="text-3xl font-bold text-gray-900 mb-5 leading-tight">The Twelve-Factor App defined how cloud-native apps should be built. We're trying to do the same thing for agents.</h2>
+                <p class="text-gray-500 leading-relaxed mb-4">
+                    Adam Wiggins published the Twelve-Factor App at Heroku over a decade ago. It wasn't a Heroku product — it was a neutral methodology that gave the whole industry a shared vocabulary. Developers still cite it today. Heroku open-sourced its governance in 2024.
+                </p>
+                <p class="text-gray-500 leading-relaxed">
+                    The Seven Factors is an attempt at the same thing — for the agentic era. A framework the field can build on, cite, debate, and improve. Not a Workato product. Something that raises the reliability bar for everyone building agents.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-start gap-5 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+                    <div class="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center shrink-0 text-lg font-bold text-gray-500">12</div>
+                    <div>
+                        <p class="font-bold text-gray-900 mb-1">Twelve-Factor App <span class="text-gray-400 font-normal text-sm">— 2011</span></p>
+                        <p class="text-gray-500 text-sm leading-relaxed">A methodology for building cloud-native SaaS apps. Published at Heroku, adopted by the industry. Still the reference for platform engineers a decade later.</p>
+                        <p class="text-gray-400 text-xs mt-2">Scope: How apps should be built for the cloud.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-5 p-6 rounded-2xl bg-[#FFF8F6] border border-orange-200">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF5F36] flex items-center justify-center shrink-0 text-lg font-bold text-white">7</div>
+                    <div>
+                        <p class="font-bold text-gray-900 mb-1">Seven Factors <span class="text-gray-400 font-normal text-sm">— 2026</span></p>
+                        <p class="text-gray-500 text-sm leading-relaxed">A framework for building reliable, secure agentic systems. Published at Workato, intended for the whole industry. Built from production deployments across thousands of enterprises.</p>
+                        <p class="text-[#FF5F36] text-xs mt-2 font-medium">Scope: How agents should interact with enterprise systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {{-- Community CTA --}}
 <section class="bg-[#0D0F2B] py-20 px-6 lg:px-8">
     <div class="max-w-3xl mx-auto text-center">

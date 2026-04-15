@@ -13,7 +13,7 @@
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-5 leading-tight">What a content campaign looks like<br class="hidden md:block"> when the system works.</h1>
         <p class="text-gray-300 text-lg leading-relaxed max-w-3xl">
-            One anchor piece. Five distribution-ready content packages. A 15-minute review process. This is the template — for this keynote and every piece of anchor content that follows.
+            One anchor piece. Six distribution-ready content packages. A 15-minute review process. This is the template — for this keynote and every piece of anchor content that follows.
         </p>
     </div>
 </section>
@@ -56,7 +56,7 @@
         <div class="flex items-center justify-between mb-10">
             <div>
                 <p class="text-xs font-semibold text-[#FF5F36] uppercase tracking-wider mb-2">Campaign Package</p>
-                <h2 class="text-2xl font-bold text-gray-900">5 content pieces, ready for review.</h2>
+                <h2 class="text-2xl font-bold text-gray-900">6 content pieces, ready for review.</h2>
             </div>
             <div class="hidden md:flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-3 text-sm">
                 <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
@@ -110,6 +110,15 @@
                 'platform_color' => 'bg-red-50 text-red-600 border-red-200',
                 'why' => 'The most shareable 30-second moment in the keynote. Adam tells the HTTPS banking story naturally and with the right energy. Clip from ~10:01 in the video.',
                 'copy' => "Source: youtube.com/watch?v=zsQjoUECVRc\nTimestamp: ~4:04 into the video\nDuration: ~30 seconds\n\nTranscript of clip:\n\"I'm old enough — I remember in the early days of banking and ecommerce, the segment of little badges: 'Don't worry, we use HTTPS, you shopping or banking with us is totally secure.' And then — well, there's a lot more than that.\"\n\nCaption: Governance theater vs. real governance. The same pattern is showing up in MCP. workato.com/7factors\n\n[Request clip edit from Annie / social team]",
+            ],
+            [
+                'number' => '06',
+                'type' => 'LinkedIn Post',
+                'audience' => 'Developers, platform engineers, technical leaders',
+                'angle' => 'The Twelve-Factor parallel',
+                'platform_color' => 'bg-blue-50 text-blue-700 border-blue-200',
+                'why' => 'The strongest credibility frame for this work — and the one that signals Adam\'s actual ambition. Anyone who knows what the Twelve-Factor App is will immediately understand what the Seven Factors is trying to become. That\'s exactly the developer audience Workato needs to reach.',
+                'copy' => "In 2011, Adam Wiggins published the Twelve-Factor App at Heroku.\n\nIt wasn't a Heroku product. It was a neutral methodology — a shared vocabulary for how SaaS apps should be built for the cloud. Developers still cite it today. Platforms still build for it. Heroku open-sourced its governance last year.\n\nWe're trying to do the same thing for agents.\n\nThe Seven Factors of the Agentic Control Plane isn't a Workato product either. It's a framework for how agents should interact with enterprise systems — built from production experience, open to contribution, intended for the whole industry.\n\nThe field is converging on these patterns whether or not we name them. We'd rather name them together.\n\nworkato.com/7factors",
             ],
         ];
         @endphp
