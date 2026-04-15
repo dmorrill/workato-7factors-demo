@@ -155,14 +155,14 @@
             <p class="text-gray-500">A quick self-assessment for architects and engineering leads evaluating their agentic deployments.</p>
         </div>
         <div class="space-y-3">
-            @foreach($factors as $factor)
-            <div class="flex items-start gap-4 p-5 rounded-xl border border-gray-200 hover:border-[#FF5F36] hover:bg-[#FFF8F6] transition-colors cursor-pointer group">
+            @foreach(\App\Data\Factors::all() as $n => $factor)
+            <a href="{{ url('/factor/' . $n) }}" class="flex items-start gap-4 p-5 rounded-xl border border-gray-200 hover:border-[#FF5F36] hover:bg-[#FFF8F6] transition-colors cursor-pointer group">
                 <div class="w-5 h-5 rounded border-2 border-gray-300 group-hover:border-[#FF5F36] shrink-0 mt-0.5 transition-colors"></div>
                 <div>
                     <p class="font-semibold text-gray-900 text-sm">{{ $factor['name'] }}</p>
                     <p class="text-gray-500 text-sm mt-0.5">{{ $factor['principle'] }}</p>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
         <p class="text-center text-gray-400 text-sm mt-8">This checklist is part of the open Seven Factors framework. <a href="#whitepaper" class="text-[#FF5F36] hover:underline">Read the full white paper →</a></p>
@@ -191,11 +191,11 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                @foreach(array_slice($factors, 0, 4) as $factor)
-                <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+                @foreach(array_slice(\App\Data\Factors::all(), 0, 4, true) as $n => $factor)
+                <a href="{{ url('/factor/' . $n) }}" class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:border-[#FF5F36] transition-colors">
                     <p class="text-xs font-semibold text-[#FF5F36] mb-1">Factor {{ $factor['number'] }}</p>
                     <p class="font-semibold text-gray-900 text-sm leading-snug">{{ $factor['name'] }}</p>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
